@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+}
+
+body {
+    background-color: darkgreen;
+}
+
+header {
+    background-image: url(./blood.jpg);
+    height: 6rem;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: 5rem;
+    font-family: 'Creepster', cursive;
+    display: flex;
+    justify-content: center;
+    color: rgb(5, 54, 5);
+    text-shadow: 0.5rem 0.5rem black;
+}
+
+h4 {
+    font-family: 'Special Elite', cursive;
+    margin: 1rem;
+
+
+}
+
+p {
+    font-family: 'Oswald', sans-serif;
+    margin: 0  1rem;
+    font-size: 1.2rem;
+}
+
+input {
+    margin: 1rem;
+}
+
+button {
+    font-family: 'Special Elite', cursive;
+    font-weight: bold;
+}
