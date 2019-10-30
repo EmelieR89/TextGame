@@ -1,17 +1,19 @@
 let room = [];
 
 room[0] = "Game over!!";
-room[1] = "office";
-room[2] = "library";
-room[3] = "kitchen";
+room[1] = "You're in an office";
+room[2] = "Looks like a library";
+room[3] = "You're in a kitchen";
 room[4] = "livingroom";
-room[5] = "master bedroom";
-room[6] = "lobby";
-room[7] = "music room";
-room[8] = "child room";
+room[5] = "This must be the master bedroom";
+room[6] = "The lobby";
+room[7] = "You're in a music room";
+room[8] = "Creepy child room";
 console.log("kör")
 //Start location
 let currentRoom = 4;
+
+let blockedPath = "Blocked path! You can't go that way!"
 
 //array of commandos that tha game understands
 const commandosToMake = ["north", "east", "south", "west"];
@@ -32,19 +34,40 @@ function playGame() {
     switch (playersChoice) {
 
         case "north":
-            currentRoom -= 3;
+            if (currentRoom > 2) {
+                currentRoom -= 3;
+            } else {
+                gameMessage = blockedPath
+            }
+
             break;
 
+
         case "east":
-            currentRoom += 1;
+            if (currentRoom === 2 || currentRoom === 5 || currentRoom === 8) {
+                gameMessage = blockedPath
+            } else {
+                currentRoom += 1;
+            }
             break;
 
         case "south":
-            currentRoom += 3;
+            if (currentRoom < 6) {
+                currentRoom += 3;
+            } else if (currentRoom === 6) {
+                gameMessage = "You made it out! Now, run..."
+
+            } else {
+                gameMessage = blockedPath
+            }
             break;
 
         case "west":
-            currentRoom -= 1;
+            if (currentRoom === 0 || currentRoom === 3 || currentRoom === 6) {
+                gameMessage = blockedPath
+            } else {
+                currentRoom -= 1;
+            }
             break;
 
         default: gameMessage = "You can't make that choice"
@@ -58,7 +81,8 @@ function playGame() {
 }
 
 function render(gameMessage = "") {
-    output.innerHTML = room[currentRoom];
+
+    output.innerHTML += room[currentRoom];
 
     output.innerHTML += "<br><em>" + gameMessage
         + "</em>";

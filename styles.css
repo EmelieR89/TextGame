@@ -3,7 +3,9 @@
 }
 
 body {
-    background-color: darkgreen;
+    background-image: url(/burntpaper.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
 header {
@@ -24,7 +26,7 @@ h2 {
 h4 {
     font-family: 'Special Elite', cursive;
     margin: 1rem;
-
+    
 
 }
 
