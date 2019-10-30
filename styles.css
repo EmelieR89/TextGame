@@ -10,6 +10,7 @@ body {
 
 header {
     background-image: url(./blood.jpg);
+    background-position: center;
     height: 6rem;
     margin-bottom: 2rem;
 }
@@ -23,10 +24,19 @@ h2 {
     text-shadow: 0.5rem 0.5rem black;
 }
 
+.storyPart {
+    text-align: center;
+}
+
+
+.storyAndInstruction {
+    margin: 1rem;
+
+}
+
 h4 {
     font-family: 'Special Elite', cursive;
-    margin: 1rem;
-    
+    margin-bottom: 1rem;
 
 }
 
@@ -44,3 +54,5 @@ button {
     font-family: 'Special Elite', cursive;
     font-weight: bold;
 }
+
+

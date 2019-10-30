@@ -15,24 +15,36 @@
 </head>
 
 <body>
+
+
+
     <header>
         <h2>Get out!</h2>
     </header>
 
-    <div>
-        <h4>You wake up. Your head is pounding and you're nauseous. You put your hand on your forehead, blood.
-            Everything is a blur. What happened yesterday? You and your best friend where out hiking, and the last
-            thing you remeber was a blow to the head. What is this place? You stand up and look around. Your phone is
-            not in your pocket, just the compass that your friend gave you before the hike.
-            Oh my god, where is he?
-            Nobody’s there. “Hello?” No answer, dead silence. Then, in the distance, heavy footsteps. The panic
-            kicks in. You need to get out… </h4>
+    <div class="storyPart">
+        <div class="storyAndInstruction">
+            <h4>You wake up. Your head is pounding and you're nauseous. You put your hand on your forehead, blood.
+                Everything is a blur. What happened yesterday? You and your best friend where out hiking, and the last
+                thing you remeber was a blow to the head. What is this place? You stand up and look around. Your phone
+                is not in your pocket, just the compass that your friend gave you before the hike.
+                Oh my god, where is he? Nobody’s there. “Hello?” No answer, dead silence. Then, in the distance, heavy
+                footsteps. The panic kicks in. You need to get out… </h4>
 
+            <button onclick="instructions()">Instructions</button>
+
+        </div>
         <p id="output"></p>
-        <input type="text" name="Answer" id="userAnswer">
+        <input type="text" name="Answer" id="userAnswer" autofocus>
         <button onclick="playGame()">Enter</button>
 
     </div>
+
+    <audio controls loop autoplay>
+        <source src="/Movie Freaky Scene-SoundBible.com-498428129.mp3" type="audio/mp3">
+        <source src="/Movie Freaky Scene-SoundBible.com-498428129.wav" type="audio/wav">
+        Your browser does not support this audio element.
+    </audio>
 
 
 
