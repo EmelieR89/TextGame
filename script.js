@@ -16,7 +16,7 @@ room[3] = "You're in a <em>kitchen</em>. The footsteps are closer now.";
 room[4] = "Looks like a <em>livingroom</em>";
 room[5] = "This must be the <em>master bedroom</em>";
 room[6] = "You're in a <em>music room</em>. You can feel a cold breeze.";
-room[7] = "The lobby";
+room[7] = "The <em>lobby</em>";
 room[8] = "Creepy <em>child room</em>";
 
 let currentRoom = 4;
@@ -88,6 +88,7 @@ function playGame() {
                 gameMessage = blockedPath
             } else {
                 currentRoom -= 1;
+
             }
             break;
 
@@ -95,10 +96,20 @@ function playGame() {
 
 
     }
+    checkDeathCondition();
 
     render(gameMessage);
 
 
+}
+
+function checkDeathCondition() {
+
+
+    if (currentRoom === 0) {
+        const img1 = document.querySelector(".hiddenUntilDead")
+        img1.style.display = "unset"
+    }
 }
 
 /**
@@ -115,3 +126,4 @@ function render(gameMessage = "") {
     }
 
 }
+
