@@ -1,3 +1,7 @@
+
+/**
+ * Gives the player instructions on how to play game
+ */
 function instructions() {
     let instructionButton = document.querySelector("h4")
     instructionButton.innerHTML = "You need to get out of this house. You can write instructions: norht, east, south and west."
@@ -6,18 +10,18 @@ function instructions() {
 let room = [];
 
 room[0] = "Game over!!";
-room[1] = "You're in an office. Wait, what was that sound?";
-room[2] = "Looks like a library";
-room[3] = "You're in a kitchen. The footsteps are closer now.";
-room[4] = "Livingroom";
-room[5] = "This must be the master bedroom";
-room[6] = "The lobby. You can feel a cold breeze.";
-room[7] = "You're in a music room";
-room[8] = "Creepy child room";
+room[1] = "You're in an <em>office</em>. Wait, what was that sound?";
+room[2] = "Looks like a <em>library</em>";
+room[3] = "You're in a <em>kitchen</em>. The footsteps are closer now.";
+room[4] = "Looks like a <em>livingroom</em>";
+room[5] = "This must be the <em>master bedroom</em>";
+room[6] = "You're in a <em>music room</em>. You can feel a cold breeze.";
+room[7] = "The lobby";
+room[8] = "Creepy <em>child room</em>";
 
 let currentRoom = 4;
 
-let blockedPath = "Blocked path! You can't go that way!"
+let blockedPath = "<strong>The windows have bars, you can't go that way!</strong>"
 
 //array of commandos that tha game understands
 const commandosToMake = ["north", "east", "south", "west"];
@@ -29,7 +33,7 @@ let input = document.getElementById("userAnswer");
 render();
 
 /**
- * 
+ * enterbutton
  */
 input.addEventListener("keyup", function (event) {
     if (event.keyCode === 13) {
@@ -104,8 +108,8 @@ function playGame() {
 function render(gameMessage = "") {
     input.value = "";
     if (gameMessage.length > 1) {
-        output.innerHTML += "<br><em>" + gameMessage
-            + "</em>";
+        output.innerHTML += "<br><strong>" + gameMessage
+            + "</strong>";
     } else {
         output.innerHTML += "<br>" + room[currentRoom];
     }
