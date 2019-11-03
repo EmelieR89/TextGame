@@ -2,6 +2,26 @@
     margin: 0;
 }
 
+/* The first page with "Start Game"*/
+.firstSite {
+    background-color: rgba(4, 34, 4, 0.9);
+    opacity: 0.9;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.firstSite > button {
+    font-size: 3rem;
+    background-color: black;
+    color: white;
+    padding: 1rem;
+}
+
+
 body {
     background-image: url(pictures/burntpaper.jpg);
     background-size: cover;
@@ -38,7 +58,6 @@ h4 {
     font-family: 'Special Elite', cursive;
     margin-bottom: 1rem;
     font-size: 1.2rem;
-
 }
 
 p {
@@ -66,23 +85,5 @@ button {
     height: 100vh;
 }
 
-/* The first page with "Start Game"*/
-.firstSite {
-    background-color: rgba(4, 34, 4, 0.9);
-    opacity: 0.9;
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.firstSite > button {
-    font-size: 3rem;
-    background-color: black;
-    color: white;
-    padding: 1rem;
-}
 
 
