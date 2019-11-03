@@ -1,46 +1,66 @@
 
+let isStartPage = true;
+
+/**
+ * Makes the div-overlay disappear and starts the music. 
+ */
+function startTheGame() {
+    let startPage = document.querySelector(".firstSite")
+    startPage.style.display = "none"
+
+    isStartPage = false;
+
+    const musicBackground = new Audio("/MovieFreaky.mp3.mp3");
+    musicBackground.loop = true;
+    musicBackground.play();
+
+}
+
+
 /**
  * Gives the player instructions on how to play game
  */
 function instructions() {
     let instructionButton = document.querySelector("h4")
-    instructionButton.innerHTML = "You need to get out of this house. You can write instructions: norht, east, south and west."
+    instructionButton.innerHTML = "You need to get out of this house. You can write the instructions: north, east, south and west."
 }
 
-let room = [];
-
-room[0] = "Game over!!";
-room[1] = "You're in an <em>office</em>. Wait, what was that sound?";
-room[2] = "Looks like a <em>library</em>";
-room[3] = "You're in a <em>kitchen</em>. The footsteps are closer now.";
-room[4] = "Looks like a <em>livingroom</em>";
-room[5] = "This must be the <em>master bedroom</em>";
-room[6] = "You're in a <em>music room</em>. You can feel a cold breeze.";
-room[7] = "The <em>lobby</em>";
-room[8] = "Creepy <em>child room</em>";
+let room = [
+    "Game over!!",
+    "You're in an <em>office</em>. Wait, what was that sound?",
+    "Looks like a <em>library</em>",
+    "You're in a <em>kitchen</em>. The footsteps are closer now.",
+    "Looks like a <em>livingroom</em>",
+    "This must be the <em>master bedroom</em>",
+    "You're in a <em>music room</em>. You can feel a cold breeze.",
+    "The <em>lobby</em>",
+    "Creepy <em>child room</em>",
+];
 
 let currentRoom = 4;
 
 let blockedPath = "<strong>The windows have bars, you can't go that way!</strong>"
 
-//array of commandos that tha game understands
 const commandosToMake = ["north", "east", "south", "west"];
 
-//input and output
 let output = document.getElementById("output");
 let input = document.getElementById("userAnswer");
 
+
 render();
 
-/**
- * enterbutton
- */
+
+
 input.addEventListener("keyup", function (event) {
     if (event.keyCode === 13) {
         event.preventDefault()
-        playGame()
+        if (!isStartPage)
+            playGame()
+        else if (isStartPage)
+            startTheGame()
     }
 });
+
 
 /**
  * This function calculates player position and movement.
@@ -75,7 +95,8 @@ function playGame() {
             if (currentRoom < 6) {
                 currentRoom += 3;
             } else if (currentRoom === 6) {
-                gameMessage = "You made it out! Now, run..."
+                const img2 = document.querySelector(".hiddenUntilWin")
+                img2.style.display = "unset"
 
             } else {
                 gameMessage = blockedPath
@@ -100,12 +121,12 @@ function playGame() {
 
     render(gameMessage);
 
-
 }
 
+/**
+ * displays "You're dead"-image if player enters room 0
+ */
 function checkDeathCondition() {
-
-
     if (currentRoom === 0) {
         const img1 = document.querySelector(".hiddenUntilDead")
         img1.style.display = "unset"
@@ -124,6 +145,7 @@ function render(gameMessage = "") {
     } else {
         output.innerHTML += "<br>" + room[currentRoom];
     }
+    output.scrollTop = output.scrollHeight;
 
 }
 
