@@ -10,7 +10,7 @@ function startTheGame() {
 
     isStartPage = false;
 
-    const musicBackground = new Audio("/MovieFreaky.mp3.mp3");
+    const musicBackground = new Audio("./MovieFreaky.mp3.mp3");
     musicBackground.loop = true;
     musicBackground.play();
 
