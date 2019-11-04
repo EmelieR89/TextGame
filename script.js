@@ -50,7 +50,6 @@ let input = document.getElementById("userAnswer");
 render();
 
 
-
 input.addEventListener("keyup", function (event) {
     if (event.keyCode === 13) {
         event.preventDefault()
@@ -124,7 +123,7 @@ function playGame() {
 }
 
 /**
- * displays "You're dead"-image if player enters room 0
+ * Displays "You're dead"-image if player enters room 0
  */
 function checkDeathCondition() {
     if (currentRoom === 0) {
